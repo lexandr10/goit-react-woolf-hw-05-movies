@@ -1,16 +1,30 @@
+import { Route, Routes } from 'react-router-dom';
+import Header from './header/Header';
+import { Suspense, lazy } from 'react';
+import {
+  getCastsMovie,
+  getReviews,
+  getSingleMovie,
+} from 'Api/serviseMovies/serviseMovies';
+const HomePage = lazy(() => import('../pages/Homepage/HomePage'));
+const MoviesSearch = lazy(() => import('../pages/MoviesPage/MoviesSearch'));
+const MovieDetails = lazy(() => import('../pages/MovieDetails/MovieDetails'));
+const Cast = lazy(() => import('../pages/Cast/Cast'));
+const Reviews = lazy(() => import('../pages/Reviews/Reviews'));
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <>
+      <Header />
+      <Suspense>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/movies" element={<MoviesSearch />} />
+          <Route path="/movies/:movieId" element={<MovieDetails />}>
+            <Route path="cast" element={<Cast />} />
+            <Route path="reviews" element={<Reviews />} />
+          </Route>
+        </Routes>
+      </Suspense>
+    </>
   );
 };

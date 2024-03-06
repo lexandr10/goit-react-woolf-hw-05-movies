@@ -1,0 +1,18 @@
+.header {
+  height: 100px;
+  color: blue;
+
+  display: flex;
+  justify-content: center;
+  background-color: #f4f4fd;
+  margin-bottom: 60px;
+}
+.list {
+  display: flex;
+  gap: 60px;
+  align-items: center;
+}
+.link {
+  text-decoration: none;
+  color: #404bbf;
+}
