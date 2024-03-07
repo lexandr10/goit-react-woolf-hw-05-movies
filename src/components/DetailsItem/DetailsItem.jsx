@@ -1,5 +1,5 @@
 import css from './DetailsItem.module.css';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 const DetailsItem = ({ movie }) => {
   return (
     <li className={css.item} key={movie.id}>

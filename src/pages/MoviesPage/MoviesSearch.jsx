@@ -1,6 +1,7 @@
 import { getSearchMovies } from 'Api/serviseMovies/serviseMovies';
 import Form from 'components/Form/Form';
 import ListSearch from 'components/ListSearch/ListSearch';
+import { Loader } from 'components/Loader/Loader';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
@@ -26,11 +27,8 @@ const MoviesSearch = () => {
         setLoader(false);
       }
     };
-    if (search) {
-      return getDataMovies();
-    } else {
-      setMovies([]);
-    }
+    if (!search) setMovies([]);
+    getDataMovies();
   }, [search, page]);
   const onSubmit = value => {
     setSearchParams({ search: value, page: 1 });
@@ -38,6 +36,7 @@ const MoviesSearch = () => {
   return (
     <>
       <Form onSubmit={onSubmit}></Form>
+      {loader && <Loader />}
       <ListSearch movies={movies}></ListSearch>
     </>
   );

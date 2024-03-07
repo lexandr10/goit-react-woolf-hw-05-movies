@@ -1,4 +1,5 @@
 import { getReviews } from 'Api/serviseMovies/serviseMovies';
+import { Loader } from 'components/Loader/Loader';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 const Reviews = () => {
@@ -24,6 +25,7 @@ const Reviews = () => {
   return (
     <div style={{ marginLeft: '60px', marginTop: '60px' }}>
       <h1>Reviews</h1>
+      {loading && <Loader />}
       <ul style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
         {reviews.map(({ id, author, author_details }) => (
           <li style={{ listStyle: 'none' }} key={id}>

@@ -1,5 +1,6 @@
 import { getCastsMovie } from 'Api/serviseMovies/serviseMovies';
 import CastItem from 'components/CastItem/CastItem';
+import { Loader } from 'components/Loader/Loader';
 const { useState, useEffect } = require('react');
 const { useParams } = require('react-router-dom');
 const Cast = () => {
@@ -26,6 +27,7 @@ const Cast = () => {
   return (
     <div style={{ marginLeft: '60px', marginTop: '60px' }}>
       <h1>Casts</h1>
+      {loading && <Loader />}
       <ul style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
         <CastItem casts={casts}></CastItem>
       </ul>

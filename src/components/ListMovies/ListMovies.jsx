@@ -2,6 +2,7 @@ import { getMovies } from 'Api/serviseMovies/serviseMovies';
 import PopularMovies from 'components/PopularMovies/PopularMovies';
 import { useEffect, useState } from 'react';
 import css from './ListMovies.module.css';
+import { Loader } from 'components/Loader/Loader';
 const ListMovies = () => {
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState('');
@@ -23,9 +24,12 @@ const ListMovies = () => {
   };
 
   return (
-    <ul className={css.list}>
-      {movies && <PopularMovies movies={movies}></PopularMovies>}
-    </ul>
+    <>
+      {loader && <Loader />}
+      <ul className={css.list}>
+        {movies && <PopularMovies movies={movies}></PopularMovies>}
+      </ul>
+    </>
   );
 };
 export default ListMovies;
