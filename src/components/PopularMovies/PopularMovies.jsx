@@ -7,7 +7,11 @@ const PopularMovies = ({ movies }) => {
       <Link className={css.link} to={`/movies/${id}`} state={location}>
         <li className={css.item} key={id}>
           <img
-            src={`https://image.tmdb.org/t/p/w200${poster_path}`}
+            src={
+              poster_path
+                ? `https://image.tmdb.org/t/p/w200${poster_path}`
+                : 'http://placehold.it/200x300'
+            }
             alt={title}
           />
           <h2 className={css.title}>{title}</h2>

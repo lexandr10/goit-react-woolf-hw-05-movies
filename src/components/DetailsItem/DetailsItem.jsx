@@ -4,7 +4,11 @@ const DetailsItem = ({ movie }) => {
   return (
     <li className={css.item} key={movie.id}>
       <img
-        src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
+        src={
+          movie.poster_path
+            ? `https://image.tmdb.org/t/p/w300${movie.poster_path}`
+            : 'http://placehold.it/200x300'
+        }
         alt={movie.title}
       />
       <div className={css.boxInfo}>

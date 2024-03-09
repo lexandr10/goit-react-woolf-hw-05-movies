@@ -14,14 +14,15 @@ const Reviews = lazy(() => import('../pages/Reviews/Reviews'));
 export const App = () => {
   return (
     <>
-      <Header />
       <Suspense>
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/movies" element={<MoviesSearch />} />
-          <Route path="/movies/:movieId" element={<MovieDetails />}>
-            <Route path="cast" element={<Cast />} />
-            <Route path="reviews" element={<Reviews />} />
+          <Route path="/" element={<Header />}>
+            <Route index element={<HomePage />} />
+            <Route path="/movies" element={<MoviesSearch />} />
+            <Route path="/movies/:movieId" element={<MovieDetails />}>
+              <Route path="cast" element={<Cast />} />
+              <Route path="reviews" element={<Reviews />} />
+            </Route>
           </Route>
         </Routes>
       </Suspense>

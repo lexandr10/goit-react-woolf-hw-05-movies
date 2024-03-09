@@ -1,6 +1,7 @@
 import { getSearchMovies } from 'Api/serviseMovies/serviseMovies';
 import Form from 'components/Form/Form';
-import ListSearch from 'components/ListSearch/ListSearch';
+import ListMovies from 'components/ListMovies/ListMovies';
+
 import { Loader } from 'components/Loader/Loader';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
@@ -37,7 +38,7 @@ const MoviesSearch = () => {
     <>
       <Form onSubmit={onSubmit}></Form>
       {loader && <Loader />}
-      <ListSearch movies={movies}></ListSearch>
+      <ListMovies movies={movies}></ListMovies>
     </>
   );
 };

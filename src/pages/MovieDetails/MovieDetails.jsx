@@ -1,6 +1,6 @@
 import { getSingleMovie } from 'Api/serviseMovies/serviseMovies';
 import DetailsItem from 'components/DetailsItem/DetailsItem';
-import { Suspense, useEffect, useState } from 'react';
+import { Suspense, useEffect, useRef, useState } from 'react';
 import { Outlet, useLocation, useNavigate, useParams } from 'react-router-dom';
 import css from './MovieDetails.module.css';
 import { Loader } from 'components/Loader/Loader';
@@ -10,7 +10,7 @@ const MovieDetails = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const location = useLocation();
-  console.log(location);
+
   const navigation = useNavigate();
   useEffect(() => {
     const getDetailMovie = async () => {
@@ -37,9 +37,8 @@ const MovieDetails = () => {
       </button>
       {loading && <Loader />}
       <DetailsItem movie={movie} />
-      <Suspense>
-        <Outlet />
-      </Suspense>
+
+      <Outlet />
     </>
   );
 };
