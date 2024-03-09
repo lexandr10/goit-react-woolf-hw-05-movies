@@ -1,5 +1,5 @@
-const CastItem = ({ casts }) => {
-  return casts?.map(({ cast_id, character, profile_path }) => (
+const CastItem = ({ cast_id, character, profile_path }) => {
+  return (
     <li style={{ listStyle: 'none' }} key={cast_id}>
       <img
         src={
@@ -11,6 +11,6 @@ const CastItem = ({ casts }) => {
       />
       <h2 style={{ textWrap: 'wrap', maxWidth: '200px' }}>{character}</h2>
     </li>
-  ));
+  );
 };
 export default CastItem;

@@ -29,7 +29,13 @@ const Cast = () => {
       <h1>Casts</h1>
       {loading && <Loader />}
       <ul style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
-        <CastItem casts={casts}></CastItem>
+        {casts?.map(({ cast_id, character, profile_path }) => (
+          <CastItem
+            cast_id={cast_id}
+            character={character}
+            profile_path={profile_path}
+          ></CastItem>
+        ))}
       </ul>
     </div>
   );

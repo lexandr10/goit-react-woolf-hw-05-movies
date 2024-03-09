@@ -25,7 +25,7 @@ const HomePage = () => {
     <>
       {loader && <Loader />}
 
-      <ListMovies movies={movies}></ListMovies>
+      {movies.length > 0 && <ListMovies movies={movies}></ListMovies>}
     </>
   );
 };
